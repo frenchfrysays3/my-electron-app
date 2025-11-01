@@ -8,8 +8,9 @@ function createWindow(): void {
     width: 720,
     height: 1000,
     webPreferences: {
-      nodeIntegration: true,
-      contextIsolation: false
+      nodeIntegration: false,
+      contextIsolation: true,
+      preload: path.join(__dirname, 'preload.js')
     }
   });
 
@@ -35,7 +36,10 @@ app.on('activate', () => {
 });
 
 ipcMain.handle('select-file', async (): Promise<string[]> => {
-  const result = await dialog.showOpenDialog(mainWindow!, {
+  if (!mainWindow) {
+    throw new Error('Main window is not available');
+  }
+  const result = await dialog.showOpenDialog(mainWindow, {
     properties: ['openFile', 'multiSelections'],
     filters: [
       { name: 'Audio Files', extensions: ['mp3', 'wav', 'ogg', 'm4a', 'flac'] }

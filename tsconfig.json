@@ -7,7 +7,8 @@
     "module": "nodenext",
     "target": "esnext",
     "types": ["node"],
-    "lib": ["esnext"],
+    "typeRoots": ["./src/types", "./node_modules/@types"],
+    "lib": ["esnext", "dom", "dom.iterable"],
 
     // Other Outputs
     "sourceMap": true,
