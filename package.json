@@ -8,8 +8,7 @@
     "dist": "npm run build && electron-builder --win --x64",
     "dist:mac": "npm run build && electron-builder --mac --arm64 --x64",
     "dist:linux": "npm run build && electron-builder --linux --x64",
-    "dist:all": "npm run build && electron-builder --mac --linux --win",
-    "generate-icon": "node ./scripts/generate-icon.js"
+    "dist:all": "npm run build && electron-builder --mac --linux --win"
   },
   "keywords": [
     "electron",
