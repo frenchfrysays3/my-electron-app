@@ -3,3 +3,5 @@ node_modules/
 release/
 .local/
 .config/
+pcakage-lock.json
+package-lock.json
