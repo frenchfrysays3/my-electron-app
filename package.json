@@ -54,8 +54,12 @@
       "icon": "build/icon.icns"
     },
     "linux": {
-      "target": ["AppImage", "deb"],
-      "icon": "build/icon.png"
+      "target": ["AppImage", "deb", "rpm"],
+      "icon": "build/icon.png",
+      "category": "Audio",
+      "vendor": "frenchfrysays",
+      "synopsis": "A modern music player built with Electron",
+      "maintainer": "frenchfrysays"
     }
   }
 }
