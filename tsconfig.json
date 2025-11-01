@@ -4,11 +4,12 @@
     "outDir": "./dist",
 
     // Environment Settings
-    "module": "nodenext",
-    "target": "esnext",
+    "module": "commonjs",
+    "target": "es2022",
     "types": ["node"],
     "typeRoots": ["./src/types", "./node_modules/@types"],
-    "lib": ["esnext", "dom", "dom.iterable"],
+    "lib": ["es2022", "dom", "dom.iterable"],
+    "moduleResolution": "node",
 
     // Other Outputs
     "sourceMap": true,
@@ -21,11 +22,8 @@
 
     // Recommended Options
     "strict": true,
-    "jsx": "react-jsx",
-    "verbatimModuleSyntax": true,
-    "isolatedModules": true,
-    "noUncheckedSideEffectImports": true,
-    "moduleDetection": "force",
+    "esModuleInterop": true,
     "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
   }
 }

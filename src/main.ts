@@ -1,5 +1,6 @@
-import { app, BrowserWindow, ipcMain, dialog } from 'electron';
-import * as path from 'path';
+import { BrowserWindow } from 'electron';
+const { app, ipcMain, dialog } = require('electron');
+const path = require('path');
 
 let mainWindow: BrowserWindow | null;
 
