@@ -1,0 +1,61 @@
+{
+  "name": "electron-music-player",
+  "version": "1.0.0",
+  "main": "dist/main.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "npm run build && electron . --no-sandbox --disable-gpu",
+    "dist": "npm run build && electron-builder --win --x64",
+    "dist:mac": "npm run build && electron-builder --mac --arm64 --x64",
+    "dist:linux": "npm run build && electron-builder --linux --x64",
+    "dist:all": "npm run build && electron-builder --mac --linux --win",
+    "generate-icon": "node ./scripts/generate-icon.js"
+  },
+  "keywords": [
+    "electron",
+    "music",
+    "player"
+  ],
+  "author": "frenchfrysays",
+  "license": "MIT",
+  "description": "A music player built with Electron",
+  "devDependencies": {
+    "@types/node": "^24.9.2",
+    "electron": "^39.0.0",
+    "electron-builder": "^24.13.3",
+    "typescript": "^5.9.3"
+  },
+  "build": {
+    "appId": "com.frenchfrysays.electronmusicplayer",
+    "productName": "Electron Music Player",
+    "files": [
+      "dist/**/*",
+      "public/**/*",
+      "package.json"
+    ],
+    "directories": {
+      "buildResources": "build",
+      "output": "release"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "build/icon.ico"
+    }
+    ,
+    "mac": {
+      "target": ["dmg","zip"],
+      "icon": "build/icon.icns"
+    },
+    "linux": {
+      "target": ["AppImage", "deb"],
+      "icon": "build/icon.png"
+    }
+  }
+}
